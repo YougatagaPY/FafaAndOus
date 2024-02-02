@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire de Location de Voiture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4">
+        <div class="max-w-lg mx-auto my-10 bg-white p-8 rounded-xl shadow shadow-slate-300">
+            <h2 class="text-2xl font-semibold text-gray-700 text-center">Location de Voiture</h2>
+            <form  onsubmit="enregistrerLocation(); return false;" method="post" class="mt-4">
+                <div class="mb-4">
+                    <label class="block text-gray-600 text-sm font-semibold mb-2" for="date_depart">Date de Départ</label>
+                    <input class="bg-white w-full border rounded-lg px-3 py-2 outline-none" type="date" id="date_depart" name="date_depart">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-600 text-sm font-semibold mb-2" for="heure_depart">Heure de Départ</label>
+                    <input class="bg-white w-full border rounded-lg px-3 py-2 outline-none" type="time" id="heure_depart" name="heure_depart">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-600 text-sm font-semibold mb-2" for="date_arrivee">Date d'Arrivée</label>
+                    <input class="bg-white w-full border rounded-lg px-3 py-2 outline-none" type="date" id="date_arrivee" name="date_arrivee">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-600 text-sm font-semibold mb-2" for="heure_arrivee">Heure d'Arrivée</label>
+                    <input class="bg-white w-full border rounded-lg px-3 py-2 outline-none" type="time" id="heure_arrivee" name="heure_arrivee">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-600 text-sm font-semibold mb-2" for="nom_client">Nom du Client</label>
+                    <input class="bg-white w-full border rounded-lg px-3 py-2 outline-none" type="text" id="nom_client" name="nom_client">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-600 text-sm font-semibold mb-2" for="telephone_client">Téléphone du Client</label>
+                    <input class="bg-white w-full border rounded-lg px-3 py-2 outline-none" type="tel" id="telephone_client" name="telephone_client">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-600 text-sm font-semibold mb-2" for="prix">Prix</label>
+                    <input class="bg-white w-full border rounded-lg px-3 py-2 outline-none" type="number" id="prix" name="prix">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-600 text-sm font-semibold mb-2" for="loue_par">Loué Par</label>
+                    <select class="bg-white w-full border rounded-lg px-3 py-2 outline-none" id="loue_par" name="loue_par">
+                        <option value="Farouk">Farouk</option>
+                        <option value="Oussama">Oussama</option>
+                        <option value="Younes">Younes</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-600 text-sm font-semibold mb-2" for="plateforme">Plateforme</label>
+                    <select class="bg-white w-full border rounded-lg px-3 py-2 outline-none" id="plateforme" name="plateforme">
+                        <option value="Black">Black</option>
+                        <option value="Turo">Turo</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-600 text-sm font-semibold mb-2" for="vehicule_loue">Véhicule Loué</label>
+                    <select class="bg-white w-full border rounded-lg px-3 py-2 outline-none" id="vehicule_loue" name="vehicule_loue">
+                        <option value="Camion1">Camion1</option>
+                        <option value="Camion2">Camion2</option>
+                        <option value="C3">C3</option>
+                    </select>
+                </div>
+
+                <div class="mt-8">
+                    <button class="bg-blue-500 text-white py-2 px-4 w-full tracking-wide rounded-lg hover:bg-blue-600">Soumettre</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
