@@ -12,8 +12,13 @@
 		<link rel="stylesheet" href="fonts/fa/css/all.css">
 		<link rel="stylesheet" href="style.css">
 		<link rel="stylesheet" href="style-global.css">
+		<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<link rel="stylesheet" href="style-responsive.css">
+		<link rel="manifest" href="/manifest.json">
 		<script src="js/jquery.js"></script>
+		<script src="https://cdn.tailwindcss.com"></script>
 		<script src="form/form.js"></script>
 	</head>
 
@@ -25,8 +30,8 @@
 
 		<header>
 			<div class="container df_c_v jcsb">
-				<a href="#home" class="logo">
-					<img src="images/logo.png" alt="" />
+				<a href="index.html" class="logo">
+					<img src="images/logov2.png" alt="" />
 				</a>
 				<div class="menucontrols">
 					<a href="javascript:void();" class="showmenu df_c_hv">
@@ -38,10 +43,10 @@
 						<span class="fa-solid fa-times"></span>
 					</a>
 					<ul>
-						<li class="active"><a href="#home">Home</a></li>
-						<li><a href="#services">Services</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#contact">Contact</a></li>
+						<li class="active"><a href="./index.html">Home</a></li>
+						<li><a href="./Reservation.html">Reservation</a></li>
+						<li><a href="./Ca.html">CA</a></li>
+						<li><a href="./connexion.html">Connexion(Soon)</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -56,121 +61,21 @@
 		<section class="banner flf bfr" style="background: url(images/pic1.jpg) no-repeat center;">
 			<div class="container">
 				<div class="text">
-					<h1>Moving Your Goods Safely</h1>
-					<h3>Using Airlines, Trains, Trucks, and Ships.</h3>
+					<h1>Ajouter une reservation</h1>
+					<h3>C'est simple ! outil fait par Younes.E</h3>
 					<br clear="all" />
-					<a href="#" class="btn">
-						CONNECTION <span class="fa-solid fa-angle-right"></span>
+					<a href="Reservation.html" class="btn">
+						Reserver <span class="fa-solid fa-angle-right"></span>
 					</a>
+					<button id="pwa-install-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" style="display: none;">
+						Télécharger <span class="fa-solid fa-download"></span>
+					  </button>
+					  
+					
 				</div>
 			</div>
 		</section>
 		<!-- BANNER -->
-
-
-
-
-
-
-
-		
-
-
-
-
-
-
-		<section class="services flf" id="services">
-			<div class="container">
-				
-				<h2>Transport Services</h2>
-				<h4>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer consequat placerat ultrices. Integer volutpat nulla eu odio lacinia hendrerit.
-				</h4>
-
-				<div class="servicesitemswrap gallery">
-					
-
-					<div class="item">
-						<div class="itemcontent">
-							<div class="thumb">
-								<img src="images/service1.jpg" alt="">
-							</div>
-							<h3>Goods Delivery Using Vans</h3>
-							<p>
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-							</p>
-						</div>
-					</div>
-
-
-
-					<div class="item">
-						<div class="itemcontent">
-							<div class="thumb">
-								<img src="images/service2.jpg" alt="">
-							</div>
-							<h3>Truck Transportation</h3>
-							<p>
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-							</p>
-						</div>
-					</div>
-
-
-
-					<div class="item">
-						<div class="itemcontent">
-							<div class="thumb">
-								<img src="images/service3.jpg" alt="">
-							</div>
-							<h3>Water Transportation (Ships)</h3>
-							<p>
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-							</p>
-						</div>
-					</div>
-
-
-
-					<div class="item">
-						<div class="itemcontent">
-							<div class="thumb">
-								<img src="images/service4.jpg" alt="">
-							</div>
-							<h3>Air Transportation</h3>
-							<p>
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-							</p>
-						</div>
-					</div>
-
-
-
-
-					<div class="item">
-						<div class="itemcontent">
-							<div class="thumb">
-								<img src="images/service5.jpg" alt="">
-							</div>
-							<h3>Train Transportation</h3>
-							<p>
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-							</p>
-						</div>
-					</div>
-
-
-				</div>
-
-			</div>
-		</section>
-		<!-- SERVICES -->
-
-
-
-
-
 
 		<footer class="flf">
 			<div class="container">
@@ -257,6 +162,56 @@
 					});
 				});
 			});
+
+
+			if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/servie-worker.js')
+        .then(registration => {
+          console.log('Service Worker enregistré avec succès.', registration);
+        })
+        .catch(error => {
+          console.log("Erreur lors de l'enregistrement du Service Worker.", error);
+        });
+    }
+
+	let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Empêcher le prompt par défaut et sauvegarder l'événement pour plus tard
+  e.preventDefault();
+  deferredPrompt = e;
+
+  // Afficher le bouton d'installation
+  const installBtn = document.getElementById('pwa-install-btn');
+  installBtn.style.display = 'inline-block';
+});
+
+// Lorsque l'utilisateur clique sur le bouton, afficher le prompt d'installation
+document.getElementById('pwa-install-btn').addEventListener('click', (e) => {
+  // Cacher le bouton
+  e.target.style.display = 'none';
+
+  // Afficher le prompt d'installation
+  deferredPrompt.prompt();
+
+  // Attendre que l'utilisateur réponde au prompt
+  deferredPrompt.userChoice.then((choiceResult) => {
+    if (choiceResult.outcome === 'accepted') {
+      console.log('L\'utilisateur a accepté l\'installation');
+    } else {
+      console.log('L\'utilisateur a refusé l\'installation');
+    }
+    deferredPrompt = null;
+  });
+});
+
+// Écouter l'événement d'installation de l'application
+window.addEventListener('appinstalled', (evt) => {
+  // L'application a été installée
+  console.log('L\'application a été installée.');
+});
+
+
 		</script>
 		<script src="js/simple-lightbox.jquery.js"></script>
 	</body>
